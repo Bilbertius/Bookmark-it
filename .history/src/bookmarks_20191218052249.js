@@ -231,7 +231,7 @@ const handleDelete = function() {
 };
 
 const handleBookmarkFormSubmit = function() {
-  $('.form-container').on('submit', '#bookmark-form', function(event) {
+  $('#form-container').on('submit', '#bookmark-form', function(event) {
     event.preventDefault();
 
     const title = $('#bookmark-name').val();
@@ -252,7 +252,7 @@ const handleBookmarkFormSubmit = function() {
 };
 
 const handleCancelAdd = function() {
-  $('.form-container').on('click', '.cancel-bookmark-button', function(event) {
+  $('.add-form').on('click', '.cancel-bookmark-button', function(event) {
     event.preventDefault();
     store.creatingBookmark = false;
     render();
@@ -260,7 +260,7 @@ const handleCancelAdd = function() {
 };
 
 const handleAdd = function() {
-  $('.form-container').on('click', '.add-button', function(event) {
+  $('.add-form').on('click', '.add-button', function(event) {
     event.preventDefault();
     // console.log(store.creatingBookmark);
     store.creatingBookmark = true;
@@ -270,7 +270,7 @@ const handleAdd = function() {
 };
 
 const handleExpand = function() {
-  $('.list-container').on('click', '.expand-button', function(event) {
+  $('.list-bookmarks').on('click', '.expand-button', function(event) {
     const id = getIdFromElement(event.currentTarget);
     const bookmark = store.bookmarks.find(bookmark => bookmark.id === id);
 
@@ -280,7 +280,7 @@ const handleExpand = function() {
 };
 
 const handleCollapse = function() {
-  $('.list-container').on('click', '.collapse-button', function(event) {
+  $('.list-bookmarks').on('click', '.collapse-button', function(event) {
     const id = getIdFromElement(event.currentTarget);
     const bookmark = store.bookmarks.find(bookmark => bookmark.id === id);
 
