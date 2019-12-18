@@ -82,3 +82,93 @@ const generateBookmarkForm = function() {
 
   return form;
 };
+
+const generateBookmark = function(bookmark) {
+  const stars = bookmark.rating === 1 ? '☆' :
+    bookmark.rating === 2 ? '☆☆' :
+      bookmark.rating === 3 ? '☆☆☆' :
+        bookmark.rating === 4 ? '☆☆☆☆' : '☆☆☆☆☆';
+        
+  const expandedBookmark = `
+    <li 
+      data-item-id="${bookmark.id}" 
+      class="bookmark-item 
+      expanded">
+      <h2 class="bookmark-name">
+          ${bookmark.title}
+      </h2>    
+      <p class="description">
+        ${bookmark.desc}
+      </p>
+      <h3 class="rating">
+        Rating: ${stars}
+      </h3>
+      <div class="visit-site">
+        <a href="${bookmark.url}">
+          Visit Site
+        </a>  
+      </div>
+        <div class="bookmark-controls">
+          <button id="collapse" type="button">
+            Collapse
+          </button>
+          <button id="delete" type="button">
+            Delete
+          </button>
+        </div>
+      </li>`;
+  
+  const basicBookmark = `
+    <li  
+      data-item-id="${bookmark.id}" 
+      class="bookmark-item">
+      <h2 class="bookmark-name">
+          ${bookmark.title}
+        </h2>
+        <h3 class="rating">
+          ${stars}
+        </h3>
+        <div class="bookmark-controls">
+          <button id="expand" type="button">Expand</button>
+          <button id="delete" type="button">Delete</button>
+        </div>
+      </li>`;
+
+  return bookmark.expanded ? expandedBookmark : basicBookmark;     
+};
+
+const generateBookmarkList = function(bookmarkList) {
+  let bookmarkListString = bookmarkList.map(bookmark => generateBookmark(bookmark)).join('');
+
+  return bookmarkListString;
+};
+
+/*~~~~~~~~~~~~~~~~~END GENERATORS~~~~~~~~~~~~~~~~~~ */
+
+/*~~~~~~~~~~~~~~~~~~~RENDERER~~~~~~~~~~~~~~~~~~~~~
+  The following function conditionally renders the 
+  view with data provided by the store.
+*/
+
+
+const render = function() {
+
+
+  if (store.creatingBookmark) {
+    $('#app').html(generateBookmarkForm());
+  } else {
+    $('#app').html(`
+        <div class="add">
+          <button type="button" class="add-button">Add Bookmark</button>    
+        </div>`);
+    $('.filter-container').html(
+      `<select name = "filter" id = "filter-rating" >
+        <option value="0">Min. Rating (Filter by):</option>
+        <option value="1">☆</option>
+        <option value="2">☆☆</option>
+        <option value="3">☆☆☆</option>
+        <option value="4">☆☆☆☆</option>
+        <option value="5">☆☆☆☆☆</option>
+        </select >`
+    );
+}
