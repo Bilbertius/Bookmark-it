@@ -1,4 +1,4 @@
-import bookmarks from './bookmarks';
+import bookmark from './bookmark';
 import api from './api';
 import store from './store';
 import './index.css';

@@ -202,8 +202,8 @@ const render = function() {
 */
 
 const getIdFromElement = function(bookmarkElement) {
-  return $(bookmarkElement)
-    .closest('li')
+  return $(bookmark)
+    .closest(li)
     .data('item-id');
 };
 

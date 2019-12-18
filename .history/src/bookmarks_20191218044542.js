@@ -104,7 +104,7 @@ const generateBookmark = function(bookmark) {
           ${bookmark.title}
       </h2>    
       <p class="description">
-        ${bookmark.description}
+        ${bookmark.desc}
       </p>
       <h3 class="rating">
         Rating: ${stars}
@@ -190,114 +190,4 @@ const render = function() {
   });
 
   $('#list-container').html(generateBookmarkList(filterBookmarks));
-};
-
-/* ~~~~~~~~~~~~~~~~~~~~~ END RENDERER ~~~~~~~~~~~~~~~~~~~~~~~~~ */
-
-/*~~~~~~~~~~~~~~~~~~~~~~~ HANDLERS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  The following functions handle various events passing incoming
-   data to the api which in turn makes changes to the store and 
-   finally the view is rendered with the updated data. 
-
-*/
-
-const getIdFromElement = function(bookmarkElement) {
-  return $(bookmarkElement)
-    .closest('li')
-    .data('item-id');
-};
-
-const handleFilter = function() {
-  $('.filter-container').on('change', '#filter-rating', function(event) {
-    event.preventDefault();
-    const ratingValue = $(event.currentTarget).val();
-
-    store.filterRating = ratingValue;
-    render();
-  });
-};
-
-const handleDelete = function() {
-  $('.list-container').on('click', '#delete', function(event) {
-    event.preventDefault();
-    const id = getIdFromElement(event.currentTarget);
-    api.deleteBookmark(id).then(() => {
-      store.findAndDelete(id);
-      render();
-    });
-  });
-};
-
-const handleBookmarkFormSubmit = function() {
-  $('#form-container').on('submit', '#bookmark-form', function(event) {
-    event.preventDefault();
-
-    const title = $('#bookmark-name').val();
-    const url = $('#bookmark-url').val();
-    const description = $('#bookmark-description').val();
-    const rating = $('#bookmark-rating').val();
-
-    api
-      .createNewBookmark(title, url, description, rating)
-      .then(newBookmark => {
-        store.addItem(newBookmark);
-        store.creatingBookmark = false;
-        store.error.message = null;
-        render();
-      })
-      .catch(error => store.addError(error.message));
-  });
-};
-
-const handleCancelAdd = function() {
-  $('.add-form').on('click', '.cancel-bookmark-button', function(event) {
-    event.preventDefault();
-    store.creatingBookmark = false;
-    render();
-  });
-};
-
-const handleAdd = function() {
-  $('.add-form').on('click', '.add-button', function(event) {
-    event.preventDefault();
-    // console.log(store.creatingBookmark);
-    store.creatingBookmark = true;
-    $('.add-button').addClass('hidden');
-    render();
-  });
-};
-
-const handleExpand = function() {
-  $('.list-bookmarks').on('click', '.expand-button', function(event) {
-    const id = getIdFromElement(event.currentTarget);
-    const bookmark = store.bookmarks.find(bookmark => bookmark.id === id);
-
-    bookmark.expanded = true;
-    render();
-  });
-};
-
-const handleCollapse = function() {
-  $('.list-bookmarks').on('click', '.collapse-button', function(event) {
-    const id = getIdFromElement(event.currentTarget);
-    const bookmark = store.bookmarks.find(bookmark => bookmark.id === id);
-
-    bookmark.expanded = false;
-    render();
-  });
-};
-
-const bindEventListeners = function() {
-  handleAdd();
-  handleBookmarkFormSubmit();
-  handleCancelAdd();
-  handleDelete();
-  handleExpand();
-  handleCollapse();
-  handleFilter();
-};
-
-export default {
-  bindEventListeners,
-  render
 };

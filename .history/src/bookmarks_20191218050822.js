@@ -202,19 +202,9 @@ const render = function() {
 */
 
 const getIdFromElement = function(bookmarkElement) {
-  return $(bookmarkElement)
-    .closest('li')
+  return $(bookmark)
+    .closest(li)
     .data('item-id');
-};
-
-const handleFilter = function() {
-  $('.filter-container').on('change', '#filter-rating', function(event) {
-    event.preventDefault();
-    const ratingValue = $(event.currentTarget).val();
-
-    store.filterRating = ratingValue;
-    render();
-  });
 };
 
 const handleDelete = function() {
@@ -229,7 +219,7 @@ const handleDelete = function() {
 };
 
 const handleBookmarkFormSubmit = function() {
-  $('#form-container').on('submit', '#bookmark-form', function(event) {
+  $('#form-contianer').on('submit', '#bookmark-form', function(event) {
     event.preventDefault();
 
     const title = $('#bookmark-name').val();
@@ -249,14 +239,6 @@ const handleBookmarkFormSubmit = function() {
   });
 };
 
-const handleCancelAdd = function() {
-  $('.add-form').on('click', '.cancel-bookmark-button', function(event) {
-    event.preventDefault();
-    store.creatingBookmark = false;
-    render();
-  });
-};
-
 const handleAdd = function() {
   $('.add-form').on('click', '.add-button', function(event) {
     event.preventDefault();
@@ -267,11 +249,27 @@ const handleAdd = function() {
   });
 };
 
+const handleCancelAdd = function() {
+  $('.add-form').on('click', '.cancel-bookmark-button', function(event) {
+    event.preventDefault();
+    store.creatingBookmark = false;
+    render();
+  });
+};
+
+const handleFilter = function() {
+  $('.filter-container').on('change', '#filter-rating', function(event) {
+    event.preventDefault();
+    const ratingValue = $(event.currentTarget).val();
+
+    store.filterRating = ratingValue;
+    render();
+  });
+};
 const handleExpand = function() {
   $('.list-bookmarks').on('click', '.expand-button', function(event) {
-    const id = getIdFromElement(event.currentTarget);
+    const id = getBookmarkIdFromElement(event.currentTarget);
     const bookmark = store.bookmarks.find(bookmark => bookmark.id === id);
-
     bookmark.expanded = true;
     render();
   });
