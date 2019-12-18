@@ -52,7 +52,7 @@ h1 {
 .add-button {
   background-color: hsl(120, 51%, 52%);
   border-radius: 15px;
-  box-shadow: -3px 8px 10px hsl(202, 62%, 67%);
+  box-shadow: -3px 8px 10px hsl(202, 74%, 52%);
   border: none;
   color: white;
   padding: 10px;
@@ -83,6 +83,7 @@ h1 {
 }
 
 .bookmark-item {
+  background-color: lightblue;
   margin-bottom: 20px;
   list-style: none;
   width: 90%;
@@ -179,16 +180,6 @@ a:hover {
   color: purple;
 }
 
-#filter-rating {
-  align-self: center;
-  padding: 18px;
-  margin-left: 45%;
-  background-color: rgb(94, 69, 98);
-  color: rgb(160, 154, 154);
-  height: 35px;
-  width: 150px;
-}
-
 .collapse-button {
   background-color: hsl(170, 47%, 45%);
   border: none;
@@ -209,18 +200,18 @@ a:hover {
   color: white;
 }
 
-#form-new-bookmark {
+#new-bookmark {
   display: block;
   width: 80%;
   margin-left: auto;
   margin-right: auto;
   border: none;
-  padding: 18px;
+  padding: 8px;
   padding-top: 1px;
   margin-top: 10px;
   border-radius: 25px;
-  background: hsla(175, 99%, 45%, 0.513);
-  box-shadow: -2px 8px 10px hsl(177, 86%, 28%);
+  background: hsla(155, 99%, 45%, 0.5);
+  box-shadow: -2px 8px 10px hsl(263, 89%, 74%);
 }
 
 #add-bookmark > h2 {
@@ -231,13 +222,10 @@ a:hover {
   color: hsl(212, 100%, 75%);
 }
 
-.input-label {
+.labeled-input {
   margin-bottom: 15px;
-  padding-left: 5px;
-  color: hsl(197, 89%, 18%);
-}
-
-.form-input {
+  padding-left: 15px;
+  color: hsl(197, 100%, 80%);
   width: 90%;
   margin-top: 15px;
   height: 30px;

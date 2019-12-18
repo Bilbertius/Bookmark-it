@@ -219,8 +219,8 @@ a:hover {
   padding-top: 1px;
   margin-top: 10px;
   border-radius: 25px;
-  background: hsla(175, 99%, 45%, 0.513);
-  box-shadow: -2px 8px 10px hsl(177, 86%, 28%);
+  background: hsla(175, 99%, 45%, 0.657);
+  box-shadow: -2px 8px 10px hsl(263, 89%, 74%);
 }
 
 #add-bookmark > h2 {

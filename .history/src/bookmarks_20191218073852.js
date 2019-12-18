@@ -80,6 +80,7 @@ const generateBookmarkForm = function() {
        </form>
   `;
 
+
   return form;
 };
 
@@ -147,6 +148,7 @@ const generateBookmarkList = function(bookmarkList) {
   let bookmarkListString = bookmarkList
     .map(bookmark => generateBookmark(bookmark))
     .join('');
+  console.log(bookmarkListString + 'haeliawh');
 
   return bookmarkListString;
 };
@@ -162,9 +164,13 @@ const render = function() {
   console.log('rendererererer');
 
   if (store.creatingBookmark) {
-    $('#form-container').html(generateBookmarkForm());
+    console.log('if');
+
+    $('.form-container').html(generateBookmarkForm());
   } else {
-    $('#app').html(`
+    console.log('else');
+
+    $('.form-container').html(`
         <div class="add">
           <button type="button" class="add-button">Add Bookmark</button>    
         </div>`);
@@ -191,7 +197,7 @@ const render = function() {
     bookmark.rating >= store.filterRating;
   });
 
-  $('#list-container').html(generateBookmarkList(filterBookmarks));
+  $('.list-container').html(generateBookmarkList(filterBookmarks));
 };
 
 /* ~~~~~~~~~~~~~~~~~~~~~ END RENDERER ~~~~~~~~~~~~~~~~~~~~~~~~~ */
@@ -215,6 +221,8 @@ const handleFilter = function() {
     const ratingValue = $(event.currentTarget).val();
 
     store.filterRating = ratingValue;
+    console.log('filter');
+
     render();
   });
 };
