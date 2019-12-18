@@ -84,17 +84,11 @@ const generateBookmarkForm = function() {
 };
 
 const generateBookmark = function(bookmark) {
-  const stars =
-    bookmark.rating === 1
-      ? '☆'
-      : bookmark.rating === 2
-      ? '☆☆'
-      : bookmark.rating === 3
-      ? '☆☆☆'
-      : bookmark.rating === 4
-      ? '☆☆☆☆'
-      : '☆☆☆☆☆';
-
+  const stars = bookmark.rating === 1 ? '☆' :
+    bookmark.rating === 2 ? '☆☆' :
+      bookmark.rating === 3 ? '☆☆☆' :
+        bookmark.rating === 4 ? '☆☆☆☆' : '☆☆☆☆☆';
+        
   const expandedBookmark = `
     <li 
       data-item-id="${bookmark.id}" 
@@ -123,7 +117,7 @@ const generateBookmark = function(bookmark) {
           </button>
         </div>
       </li>`;
-
+  
   const basicBookmark = `
     <li  
       data-item-id="${bookmark.id}" 
@@ -140,13 +134,11 @@ const generateBookmark = function(bookmark) {
         </div>
       </li>`;
 
-  return bookmark.expanded ? expandedBookmark : basicBookmark;
+  return bookmark.expanded ? expandedBookmark : basicBookmark;     
 };
 
 const generateBookmarkList = function(bookmarkList) {
-  let bookmarkListString = bookmarkList
-    .map(bookmark => generateBookmark(bookmark))
-    .join('');
+  let bookmarkListString = bookmarkList.map(bookmark => generateBookmark(bookmark)).join('');
 
   return bookmarkListString;
 };
@@ -158,7 +150,10 @@ const generateBookmarkList = function(bookmarkList) {
   view with data provided by the store.
 */
 
+
 const render = function() {
+
+
   if (store.creatingBookmark) {
     $('#app').html(generateBookmarkForm());
   } else {
@@ -176,11 +171,4 @@ const render = function() {
         <option value="5">☆☆☆☆☆</option>
         </select >`
     );
-  }
-
-  if (store.error.message) {
-    $('#error').append(store.error.message);
-  } else {
-    $('#error').empty();
-  }
-};
+}

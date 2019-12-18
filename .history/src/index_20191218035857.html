@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="A tool to help you organize and keep track of websites you may frequent." />
+  
+  <title>Bookmark-It</title>
+  </head>
+  
+  <body>
+    <header class="app-title">
+      <h1>Bookmark It</h1>
+    </header>
+    <hr />
+    <main role="main">
+      <p class="error"></p>
+  
+      <section class="app">
+       <form id="bookmark-form">
+         <h2>new bookmark</h2>
+         
+        <div class="labeled-input">
+          <label for="bookmark-title" class="title">bookmark title</label>
+          <br>
+          <input name="title" type="text" id="bookmark-title" required>
+        </div>
+        <div class="labeled-input">
+          <label 
+            for="bookmark-url" 
+            class="bookmark-input">
+             bookmark url
+          </label>
+          <br>
+          <input 
+            name="url" 
+            type="url" 
+            id="bookmark-url" 
+            required>
+        </div>
+        <div class="labeled-input">
+          <label 
+            for="bookmark-description" 
+            class="title">
+              bookmark title
+            </label>
+          <br>
+          <input 
+            name="description" 
+            type="textarea" 
+            id="bookmark-description" 
+            required>
+        </div>
+       </form>
+
+
+
+
+
+        <div class="filter-container" aria-live="polite"></div>
+      <ul class="list-bookmarks" aria-live="polite"></ul></section>
+    </main>
+  </body>
+  
+  </html>
+</head>
+<body>
+  
+</body>
+</html>
