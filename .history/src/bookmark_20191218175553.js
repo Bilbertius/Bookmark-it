@@ -21,12 +21,12 @@ const generateNewBookmarkForm = function() {
         <div class="input-label">
             <label for="bookmark-url">URL</label>
             </br>
-            <input type="url" id="bookmark-url" name="url" value="http://www." class="form-input" required>
+            <input type="url" id="bookmark-url" name="url" value="http://" class="form-input" required>
         </div>
        <div class="input-label">
             <label for="bookmark-description">Description</label>
             </br>
-            <textarea rows="2" cols="30" id="bookmark-description" name="description" placeholder="Enter bookmark description" class="form-input-description" required></textarea>
+            <textarea rows="2" cols="30" id="bookmark-description" name="description" placeholder="Enter bookmark description" class="form-input-description required></textarea>
         </div>
         <div class="input-label">
             <label for="bookmark-rating">Please rate (1 to 5 stars):</label>
@@ -61,7 +61,7 @@ const generateBookmarkElement = function(bookmark) {
     return `
       <li data-item-id="${bookmark.id}" class="bookmark-item expanded">
         <h2 class="bookmark-name">${bookmark.title}</h2>
-        <p class="description">${bookmark.desc}</p>
+        <p class="description">${bookmark.description}</p>
         <h3 class="rating">Rating: ${starRating}</h3>
         <div class="visit-site">
           <a href="${bookmark.url}">Visit Site</a>
@@ -128,7 +128,7 @@ const render = function() {
   let filteredBookmarks = bookmarks.filter(
     bookmark => bookmark.rating >= store.filterRating
   );
-
+  console.log(filteredBookmarks);
   let htmlString = generateBookmarkString(filteredBookmarks);
   $('.list-bookmarks').html(htmlString);
 };
@@ -160,16 +160,14 @@ const handleAddBookmarkForm = function() {
     event.preventDefault();
     const title = $('#bookmark-title').val();
     const url = $('#bookmark-url').val();
-    const desc = $('#bookmark-description').val();
+    const description = $('#bookmark-description').val();
     const rating = $('#bookmark-rating').val();
     api
-      .createBookmark(title, url, desc, rating)
+      .createBookmark(title, url, description, rating)
       .then(newBookmark => {
         store.addItem(newBookmark);
         store.creatingBookmark = false;
         store.error.message = null;
-        console.log(newBookmark);
-
         render();
       })
       .catch(err => {

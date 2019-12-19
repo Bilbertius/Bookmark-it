@@ -177,10 +177,7 @@ label {
   align-self: center;
   padding: 40px;
   background-color: hsl(186, 70%, 74%);
-  color: rgb(22, 44, 250);
-  font-weight: light;
-  line-height: 1.6;
-  letter-spacing: 1px;
+  color: white;
   border-radius: 15px;
   box-shadow: -2px 6px 8px hsl(186, 9%, 56%);
 }
@@ -224,12 +221,8 @@ label {
 
 .visit-site > a {
   text-decoration: none;
-  color: hsl(250, 70%, 40%);
+  color: hsl(103, 69%, 25%);
   font-size: 20px;
-}
-
-.visit-site > a:hover {
-  color: hsl(250, 69%, 65%);
 }
 
 #filter-rating {

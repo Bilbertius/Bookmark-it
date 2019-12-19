@@ -21,7 +21,7 @@ const generateNewBookmarkForm = function() {
         <div class="input-label">
             <label for="bookmark-url">URL</label>
             </br>
-            <input type="url" id="bookmark-url" name="url" value="http://www." class="form-input" required>
+            <input type="url" id="bookmark-url" name="url" value="http://" class="form-input" required>
         </div>
        <div class="input-label">
             <label for="bookmark-description">Description</label>

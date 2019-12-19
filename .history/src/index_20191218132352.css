@@ -26,15 +26,6 @@ h1 {
   margin: 15px;
   font-weight: bolder;
 }
-
-h2 {
-  margin-right: auto;
-  margin-left: auto;
-  text-align: center;
-  font-size: 30px;
-  color: hsla(184, 56%, 26%, 0.787);
-}
-
 button {
   border: none;
   box-shadow: -2px 3px 4px hsla(0, 2%, 34%, 0.541);
@@ -43,26 +34,33 @@ button {
 input[type='text'],
 input[type='url'],
 input[type='textarea'] {
-  box-shadow: inset 0px 2px 4px hsl(0, 2%, 47%);
+  box-shadow: inset 1px 2px 4px hsl(0, 2%, 47%);
   border: 1px inset inherit;
-  padding: 10px;
-  font-size: 18px;
 }
 
-textarea {
-  box-shadow: inset 0px 2px 4px hsl(0, 2%, 47%);
-  border: 1px inset inherit;
-  border-radius: 10px;
-  padding: 10px;
-  font-size: 18px;
+.filter {
+  display: flex;
+
+  border-radius: 10%;
+  margin-right: 20px;
+  margin-left: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 20px;
+  width: 100px;
+  height: 50px;
+  color: white;
 }
-label {
-  font-weight: bold;
-  color: hsl(188, 100%, 64%);
+
+.add-form {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 .add-button {
-  display: inline-block;
   background-color: hsl(120, 51%, 52%);
   border-radius: 15px;
   box-shadow: -3px 8px 10px hsl(202, 62%, 67%);
@@ -87,77 +85,6 @@ label {
   opacity: 0.8;
 }
 
-.bookmark-controls {
-  margin-top: 8px;
-  margin-bottom: 8px;
-}
-.collapse-button {
-  background-color: hsl(170, 46%, 37%);
-  border: none;
-  color: white;
-  text-align: center;
-  border: none;
-  font-size: 18px;
-  border-radius: 15px;
-  text-decoration: none;
-  font-weight: bolder;
-  padding: 10px;
-  width: 150px;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-.expand-button,
-.delete-button {
-  background-color: hsl(120, 41%, 52%);
-  border: none;
-  color: white;
-  text-align: center;
-  font-size: 18px;
-  text-decoration: none;
-  font-weight: bolder;
-  padding: 10px;
-  width: 150px;
-  border-radius: 15px;
-  margin-left: 30px;
-  margin-right: 30px;
-}
-
-.expand-button:hover {
-  background-color: hsl(120, 53%, 62%);
-  color: white;
-}
-
-.delete-button {
-  background-color: hsl(12, 59%, 53%);
-  border: none;
-}
-
-.delete-button:hover {
-  background-color: hsl(12, 59%, 64%);
-  color: white;
-}
-
-.filter {
-  display: inline-block;
-  border-radius: 10%;
-  margin-right: 20px;
-  margin-left: 20px;
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 20px;
-  width: 100px;
-  height: 50px;
-  color: white;
-}
-
-.add-form {
-  width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-  text-align: center;
-  margin-bottom: 30px;
-}
-
 .list-bookmarks {
   display: flex;
   flex-direction: column;
@@ -175,12 +102,9 @@ label {
   flex-direction: column;
   align-items: center;
   align-self: center;
-  padding: 40px;
+  padding: 20px;
   background-color: hsl(186, 70%, 74%);
-  color: rgb(22, 44, 250);
-  font-weight: light;
-  line-height: 1.6;
-  letter-spacing: 1px;
+  color: white;
   border-radius: 15px;
   box-shadow: -2px 6px 8px hsl(186, 9%, 56%);
 }
@@ -208,6 +132,39 @@ label {
   margin-top: 8px;
   margin-bottom: 8px;
 }
+
+.expand-button,
+.delete-button {
+  background-color: hsl(120, 41%, 52%);
+  border: none;
+  color: white;
+  text-align: center;
+
+  text-decoration: none;
+  font-weight: bold;
+  padding: 5px;
+  width: 80px;
+  border-radius: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.expand-button:hover {
+  background-color: hsl(120, 53%, 62%);
+  color: white;
+}
+
+.delete-button {
+  background-color: hsl(12, 59%, 53%);
+  border: none;
+  font-weight: normal;
+}
+
+.delete-button:hover {
+  background-color: hsl(0, 59%, 64%);
+  color: white;
+}
+
 .description {
   margin: 0;
   margin-top: 8px;
@@ -216,38 +173,49 @@ label {
 }
 
 .visit-site {
-  margin: 15px 20px;
-  border: none;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  border: 1px solid black;
   padding: 15px;
-  background-color: inherit;
+  background-color: rgb(75, 190, 75);
 }
 
-.visit-site > a {
-  text-decoration: none;
-  color: hsl(250, 70%, 40%);
-  font-size: 20px;
+a {
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
 }
 
-.visit-site > a:hover {
-  color: hsl(250, 69%, 65%);
+a:hover {
+  color: purple;
 }
 
 #filter-rating {
-  font-size: 18px;
-  font-weight: bolder;
+  align-self: center;
   padding: 18px;
-
-  background-color: hsl(192, 23%, 45%);
-  color: hsla(167, 100%, 64%, 0.794);
-  height: 55px;
-  width: 290px;
-}
-.filter-container {
-  display: flex;
-  justify-content: center;
+  margin-left: 45%;
+  background-color: rgb(94, 69, 98);
+  color: rgb(160, 154, 154);
+  height: 35px;
+  width: 150px;
 }
 
-. .collapse-button:hover {
+.collapse-button {
+  background-color: hsl(170, 47%, 45%);
+  border: none;
+  color: white;
+  text-align: center;
+  border: none;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 5px;
+  width: 80px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.collapse-button:hover {
   background-color: hsl(169, 48%, 72%);
   color: white;
 }
@@ -262,8 +230,8 @@ label {
   padding-top: 1px;
   margin-top: 10px;
   border-radius: 25px;
-  background: hsla(175, 94%, 34%, 0.513);
-  box-shadow: -2px 8px 10px hsl(177, 75%, 36%);
+  background: hsla(175, 99%, 45%, 0.513);
+  box-shadow: -2px 8px 10px hsl(177, 86%, 28%);
 }
 
 h2 {
@@ -271,7 +239,7 @@ h2 {
   margin-left: auto;
   text-align: center;
   font-size: 30px;
-  color: hsla(184, 56%, 26%, 0.787);
+  color: hsla(155, 42%, 48%, 0.479);
 }
 
 .input-label {

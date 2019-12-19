@@ -224,12 +224,12 @@ label {
 
 .visit-site > a {
   text-decoration: none;
-  color: hsl(250, 70%, 40%);
+  color: hsl(163, 69%, 45%);
   font-size: 20px;
 }
 
 .visit-site > a:hover {
-  color: hsl(250, 69%, 65%);
+  color: hsl(103, 69%, 45%);
 }
 
 #filter-rating {

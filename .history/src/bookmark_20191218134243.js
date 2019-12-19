@@ -21,12 +21,12 @@ const generateNewBookmarkForm = function() {
         <div class="input-label">
             <label for="bookmark-url">URL</label>
             </br>
-            <input type="url" id="bookmark-url" name="url" value="http://www." class="form-input" required>
+            <input type="url" id="bookmark-url" name="url" value="http://" class="form-input" required>
         </div>
        <div class="input-label">
             <label for="bookmark-description">Description</label>
             </br>
-            <textarea rows="2" cols="30" id="bookmark-description" name="description" placeholder="Enter bookmark description" class="form-input-description" required></textarea>
+            <textarea rows="2" cols="30" id="bookmark-description" name="description" placeholder="Enter bookmark description" class="form-input-desc" required></textarea>
         </div>
         <div class="input-label">
             <label for="bookmark-rating">Please rate (1 to 5 stars):</label>
@@ -128,7 +128,7 @@ const render = function() {
   let filteredBookmarks = bookmarks.filter(
     bookmark => bookmark.rating >= store.filterRating
   );
-
+  console.log(filteredBookmarks);
   let htmlString = generateBookmarkString(filteredBookmarks);
   $('.list-bookmarks').html(htmlString);
 };
@@ -168,8 +168,6 @@ const handleAddBookmarkForm = function() {
         store.addItem(newBookmark);
         store.creatingBookmark = false;
         store.error.message = null;
-        console.log(newBookmark);
-
         render();
       })
       .catch(err => {

@@ -62,7 +62,6 @@ label {
 }
 
 .add-button {
-  display: inline-block;
   background-color: hsl(120, 51%, 52%);
   border-radius: 15px;
   box-shadow: -3px 8px 10px hsl(202, 62%, 67%);
@@ -97,10 +96,9 @@ label {
   color: white;
   text-align: center;
   border: none;
-  font-size: 18px;
   border-radius: 15px;
   text-decoration: none;
-  font-weight: bolder;
+  font-weight: bold;
   padding: 10px;
   width: 150px;
   margin-left: 10px;
@@ -138,7 +136,8 @@ label {
 }
 
 .filter {
-  display: inline-block;
+  display: flex;
+
   border-radius: 10%;
   margin-right: 20px;
   margin-left: 20px;
@@ -175,12 +174,9 @@ label {
   flex-direction: column;
   align-items: center;
   align-self: center;
-  padding: 40px;
+  padding: 20px;
   background-color: hsl(186, 70%, 74%);
-  color: rgb(22, 44, 250);
-  font-weight: light;
-  line-height: 1.6;
-  letter-spacing: 1px;
+  color: white;
   border-radius: 15px;
   box-shadow: -2px 6px 8px hsl(186, 9%, 56%);
 }
@@ -224,12 +220,8 @@ label {
 
 .visit-site > a {
   text-decoration: none;
-  color: hsl(250, 70%, 40%);
+  color: hsl(103, 69%, 25%);
   font-size: 20px;
-}
-
-.visit-site > a:hover {
-  color: hsl(250, 69%, 65%);
 }
 
 #filter-rating {
