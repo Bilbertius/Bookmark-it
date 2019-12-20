@@ -128,14 +128,13 @@ label {
 }
 
 .delete-button {
-  background-color: hsl(0, 16%, 71%);
-  border: 2px solid hsl(0, 79%, 58%);
-  color: hsl(0, 74%, 55%);
+  background-color: inherit;
+  border: none;
 }
 
 .delete-button:hover {
   background-color: inherit;
-  color: hsla(0, 59%, 70%, 0.938);
+  color: white;
 }
 
 .filter {
