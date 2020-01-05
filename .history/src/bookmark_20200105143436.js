@@ -49,14 +49,14 @@ const generateNewBookmarkForm = function() {
 const generateBookmarkElement = function(bookmark) {
   const starRating =
     bookmark.rating === 1
-      ? '★☆☆☆☆'
+      ? '☆'
       : bookmark.rating === 2
-      ? '★★☆☆☆'
+      ? '☆☆'
       : bookmark.rating === 3
-      ? '★★★☆☆'
+      ? '☆☆☆'
       : bookmark.rating === 4
-      ? '★★★★☆'
-      : '★★★★★';
+      ? '☆☆☆☆'
+      : '☆☆☆☆☆';
   if (bookmark.expanded) {
     return `
       <li data-item-id="${bookmark.id}" class="bookmark-item expanded">
@@ -107,11 +107,11 @@ const render = function() {
     $('.filter-container').html(
       `<select name = "filter" id = "filter-rating" >
         <option value="0">Filter rating: </option>
-        <option value="1">★☆☆☆☆</option>
-        <option value="2">★★☆☆☆</option>
-        <option value="3">★★★☆☆</option>
-        <option value="4">★★★★☆</option>      
-        <option value="5">★★★★★</option>
+        <option value="1">☆</option>
+        <option value="2">☆☆</option>
+        <option value="3">☆☆☆</option>
+        <option value="4">☆☆☆☆</option>
+        <option value="5">☆☆☆☆☆</option>
         </select >`
     );
   }

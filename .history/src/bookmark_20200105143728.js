@@ -106,12 +106,11 @@ const render = function() {
         </div>`);
     $('.filter-container').html(
       `<select name = "filter" id = "filter-rating" >
-        <option value="0">Filter rating: </option>
         <option value="1">★☆☆☆☆</option>
-        <option value="2">★★☆☆☆</option>
-        <option value="3">★★★☆☆</option>
-        <option value="4">★★★★☆</option>      
-        <option value="5">★★★★★</option>
+              <option value="2">★★☆☆☆</option>
+              <option value="3">★★★☆☆</option>
+              <option value="4">★★★★☆</option>
+              <option value="5">★★★★★</option>
         </select >`
     );
   }
